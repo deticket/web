@@ -1,0 +1,32 @@
+# docker-compose.yml
+version: "3"
+services:
+  app:
+    build: .
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgres://postgres:pass@postgres:5432/detticket_dev
+      DATABASE_NAME: detticket_dev
+      DATABASE_PASSWORD: pass
+      DATABASE_USER: postgres
+      NODE_ENV: development
+      PORT: 3030
+    ports:
+      - "3030:3030"
+    command: yarn dev
+    volumes:
+      - .:/app/
+      - /app/node_modules
+
+  postgres:
+    image: postgres:10.4
+    ports:
+      - "35432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: detticket_dev
+  
+    # volumes:/v  
+    #   - ~/dbdata:/var/lib/postgresql/data

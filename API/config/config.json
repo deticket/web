@@ -1,0 +1,27 @@
+
+{
+  "development": {
+    "username": "postgres",
+    "password": null,
+    "database": "detticket_dev",
+    "host": "localhost",
+    "dialect": "postgres",
+    "port": "5432"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "detticket_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorsAliases": false
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "detticket_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorsAliases": false
+  }
+}
