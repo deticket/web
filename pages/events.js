@@ -3,6 +3,12 @@ import fetch from 'node-fetch'
 function Page({ data }) {
   console.log('data', JSON.stringify(data))
   // Render data...
+  if (data.length > 0) {
+    return data.map(d => {
+      return (<div>{d.name}</div>)
+    })
+  }
+
   return <div>HOLA</div>
 }
 
