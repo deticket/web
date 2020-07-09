@@ -27,6 +27,7 @@
     "morgan": "1.10.0",
     "next": "9.3.5",
     "next-routes": "1.4.2",
+    "node-fetch": "2.6.0",
     "nodemon": "2.0.4",
     "pg": "8.2.1",
     "pg-hstore": "2.3.3",
