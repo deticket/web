@@ -15,19 +15,19 @@ const {
 } = process.env;
 
 let sequelize;
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
+// if (config.use_env_variable) {
+//   sequelize = new Sequelize(process.env[config.use_env_variable], config);
+// } else {
 
-  const isDocker = process.env.DATABASE_URL;
-  if (isDocker) {
-    sequelize = new Sequelize(DATABASE_URL);
-  }
-  else {
-    // for local development you will need to set these 
-    sequelize = new Sequelize(DATABASE_NAME, DATABASE_USER, DATABASE_PASSWORD, { ...config, dialect: 'postgres' });
-  }
+const isDocker = process.env.DATABASE_URL;
+if (isDocker) {
+  sequelize = new Sequelize(DATABASE_URL);
 }
+else {
+  // for local development you will need to set these 
+  sequelize = new Sequelize(DATABASE_NAME, DATABASE_USER, DATABASE_PASSWORD, { ...config, dialect: 'postgres' });
+}
+// }
 fs
   .readdirSync(__dirname)
   .filter(file => {

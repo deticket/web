@@ -8,6 +8,7 @@ const cookieSession = require('cookie-session');
 const http = require('http');
 
 
+require('dotenv').config()
 
 
 const port = parseInt(process.env.PORT, 10) || 3030
@@ -16,7 +17,7 @@ const app = next({ dev })
 const handle = app.getRequestHandler()
 
 
-// console.log('events', routes)
+console.log('process.env.NODE_ENV', process.env.AUTH_0_CLIENT_ID)
 
 app.prepare().then(() => {
   const server = express()
